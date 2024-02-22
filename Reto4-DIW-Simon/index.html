@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Simon</h1>
+            <h2>Puntuación: </h2>
+            <h3 id="score">0</h3>
+
+
+        </div>
+
+        <div class="controler">
+            <button id="start">Iniciar</button>
+            <button id="rankingButton">Tabla de puntuación</button>
+        </div>
+    </header>
+    <dialog id="mode">
+        <select name="difficulty" id="difficulty">
+            <option value="easy">Fácil</option>
+            <option value="medium">Medio</option>
+            <option value="hard">Difícil</option>
+        </select>
+        <input type="button" value="Comenzar" id="saveMode">
+
+    </dialog>
+
+    <div id="simon">
+        <div class="general">
+            <div class="button red" onclick="playerInput('red')"></div>
+            <div class="button blue" onclick="playerInput('blue')"></div>
+            <div class="button yellow" onclick="playerInput('yellow')"></div>
+            <div class="button green" onclick="playerInput('green')"></div>
+        </div>
+    </div>
+
+    <dialog id="scoreRanking">
+        <table style="border: 2px black;">
+            <thead>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Puntuación</th>
+                    <th>Dificultad</th>
+                </tr>
+            </thead>
+            <tbody id="ranking">
+                <template id="template">
+                <tr>
+                    <td class="nameC"></td>
+                    <td class="scoreC"></td>
+                    <td class="difficultyC"></td>
+                </tr>
+            </template>
+            </tbody>
+        </table>
+        <button id="hideRanking">Ocultar</button>
+    </dialog>
+
+    <script src="static/js/app.js"></script>
+</body>
+
+</html>

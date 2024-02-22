@@ -1,0 +1,193 @@
+::backdrop{
+    background-color: rgba(0, 0, 0, 0.511);
+}
+
+body{
+    margin: 0%;
+
+}
+header{
+    background: linear-gradient(135deg, #2d8bf6,#003cff,#6c026c); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.99rem;
+   
+    
+    h1{
+        font-size: 4rem;
+        margin-left: 2rem;
+
+    }
+    h2{
+        display: inline;
+        margin-left: 2rem;
+    }
+
+    h3{
+        display: inline-block;
+        margin: 20px;
+        
+    }
+
+    div.controller{
+            display: flex;
+            align-items: center;
+           
+    }
+
+    button{
+        margin: 0 10px; 
+        height: 5rem;
+        font-size: 2rem;
+        border-radius: 2rem;
+        padding: 1rem;
+    }
+}
+
+dialog#mode{
+    width: 20rem; 
+    padding: 20px; 
+    border: 2px solid black;
+    border-radius: 10px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    
+    select#difficulty{
+        width: 100%;
+        margin-bottom: 10px;
+        height: 2rem;
+        font-size: 1rem;
+        border-radius: 2rem;
+        text-align: center;
+    }
+
+    input{
+        margin-bottom: 1rem;
+        padding: 10px;
+        width: 100%;
+        
+        font-size: 2rem;
+        border-radius: 1rem;
+    }
+
+}
+
+
+dialog#scoreRanking{
+    width: 30rem; 
+    padding: 20px; 
+    border: 2px solid black;
+    border-radius: 10px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    background: linear-gradient(45deg, #ff00ff, #00ffff); 
+
+   
+    table{
+        border-collapse: collapse;
+        width: 100%;
+        font-size:1.5rem;
+        
+        
+       
+        
+        tr{
+            border: 1px solid black;
+            text-align: left;
+            padding: 10px;
+            
+        }
+        th{
+            padding-right: 1rem;
+           
+        }
+        th, td{
+            text-shadow: 0px 0px 8px white;
+        }
+
+    }
+
+    button{
+        display: block;
+        margin: 0 auto; 
+        margin-top: 2rem;
+        height: 2rem;
+        border-radius: 2rem;
+        font-size: 1.5rem;
+    
+        
+    }
+}
+
+
+
+
+#simon{
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.general{
+    width: 40rem;
+    height: 40rem;
+    display: grid;
+    grid-template-rows: 1fr, 1fr;
+    grid-template-columns: 1fr, 1fr;
+    grid-template:
+        "azul rojo"
+        "amarillo verde";
+    .red{
+        background-color: rgb(137, 0, 0);
+        grid-area: rojo;
+        border-radius: 0 100% 0 0;
+        cursor: pointer;
+        
+    }
+    .blue{
+        background-color: rgb(0, 75, 137);
+        grid-area: azul;
+        border-radius: 100% 0 0;
+        cursor: pointer
+    }
+    .yellow{
+        background-color: rgb(158, 153, 0);
+        grid-area: amarillo;
+        border-radius: 0 0 0 100%;
+        cursor: pointer
+    }
+    .green{
+        background-color: rgb(46, 137, 0);
+        grid-area: verde;
+        border-radius: 0 0 100%;
+        cursor: pointer
+    }
+
+    .redOn{
+        background-color: rgb(255, 0, 0);
+        grid-area: rojo;
+        border-radius: 0 100% 0 0;
+        cursor: pointer;
+        
+    }
+    .blueOn{
+        background-color: rgb(0, 140, 255);
+        grid-area: azul;
+        border-radius: 100% 0 0;
+        cursor: pointer
+    }
+    .yellowOn{
+        background-color: rgb(255, 247, 0);
+        grid-area: amarillo;
+        border-radius: 0 0 0 100%;
+        cursor: pointer
+    }
+    .greenOn{
+        background-color: rgb(85, 255, 0);
+        grid-area: verde;
+        border-radius: 0 0 100%;
+        cursor: pointer
+    }
+}
