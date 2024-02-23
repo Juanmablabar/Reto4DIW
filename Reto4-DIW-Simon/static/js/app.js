@@ -11,6 +11,7 @@ var scoreRanking = document.getElementById('scoreRanking');
 var ranking = document.getElementById('ranking');
 var hideRanking = document.getElementById('hideRanking');
 var template = document.querySelector('template');
+var scoreInt = 0;
 var sounds = {
   green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
   red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
@@ -129,27 +130,36 @@ function checkSequence() {
     if (playerSequence[playerSequence.length - 1] != sequence[playerSequence.length - 1]) {
       alert('¡Perdiste! Intenta de nuevo.');
       sequence = [];
+      playerSequence = [];
       loseGame();
       return;
     } else {
       switch (difficultyValue) {
-        case "easy": score.innerText++;
+        case "easy": scoreInt++;
           break;
-        case "medium": score.innerText += 2;
+        case "medium": scoreInt += 2;
           break;
-        case "hard": score.innerText += 3;
+        case "hard": scoreInt += 3;
       }
+      score.innerText = scoreInt;
 
     }
   } else {
     if (playerSequence[playerSequence.length - 1] != sequence[playerSequence.length - 1]) {
       alert('¡Perdiste! Intenta de nuevo.');
       sequence = [];
+      playerSequence = [];
       loseGame();
-      //showTable()
       return;
     } else {
-      score.innerText++;
+      switch (difficultyValue) {
+        case "easy": scoreInt++;
+          break;
+        case "medium": scoreInt += 2;
+          break;
+        case "hard": scoreInt += 3;
+      }
+      score.innerText = scoreInt;
       playerSequence = [];
       startGame();
     }
@@ -179,6 +189,7 @@ function showTable(){
 }
 // Función de terminar el juego
 function loseGame(){
+  playername=null;
   playername=(prompt("Introduce tu nombre:").slice(0, 3));
   var difficultyValueTranslated;
   switch(difficultyValue){
@@ -199,5 +210,12 @@ function loseGame(){
   playerRanking.sort(function(a,b){
     return b.score-a.score;
   });
+  scoreInt=0;
+  score.innerText = 0;
+
+  if(playername===null){
+    scoreInt=0;
+    score.innerText = 0;
+  }
   localStorage.setItem("playerRanking", JSON.stringify(playerRanking));
 }
