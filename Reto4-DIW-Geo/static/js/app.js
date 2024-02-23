@@ -42,6 +42,7 @@ saveLocation.addEventListener('click', function(){
     if(marker){
         saveDeletedMarkers(marker);
         map.removeLayer(marker);
+        marker=null;
         panel.innerHTML = '';
     }
     // Establece los datos del marcador
@@ -89,10 +90,11 @@ closeHist.addEventListener('click', function(){
 })
 
 // Eliminar marcador y guardar marcador
-map.on('contextmenu', function(e){
+map.on('contextmenu', function(){
     if(marker && confirm('¿Borrar este marcador?')){
         saveDeletedMarkers(marker);
         map.removeLayer(marker);
+        marker = null;
         panel.innerHTML='';
     }
 })
@@ -112,14 +114,17 @@ function saveDeletedMarkers(marker){
 // Distancia, temporizador y nombre
 function updatePanel(){
     if(youAreHere){
-        var currentCoords = youAreHere.getLatLng();
-        var distance = calculateDistance(currentCoords, marker.getLatLng());
-        var time = calculateTime(marker.timestamp);
-    
-        panel.innerHTML = `
-        <p>Nombre: ${marker.getPopup().getContent()}</p>
-        <p>Distancia: ${distance.toFixed(2)} metros</p>
-        <p>Tiempo: ${time} minutos</p>`;
+        if(marker){
+            var currentCoords = youAreHere.getLatLng();
+            var distance = calculateDistance(currentCoords, marker.getLatLng());
+            var time = calculateTime(marker.timestamp);
+        
+            panel.innerHTML = `
+            <p>Nombre: ${marker.getPopup().getContent()}</p>
+            <p>Distancia: ${distance.toFixed(2)} metros</p>
+            <p>Tiempo: ${time} minutos</p>`;
+        }
+        
     }else{
         panel.innerHTML = "Ubicación desconocida";
     }
